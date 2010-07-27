@@ -1,5 +1,5 @@
 %define upstream_name    local-lib
-%define upstream_version 1.006004
+%define upstream_version 1.006005
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
