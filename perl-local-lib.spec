@@ -3,9 +3,9 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Release:    %mkrel 2
 
-Summary:    Erschaffen und benutzen von Perl Modulen in einem lokalen lib/ Verzeichnis mit PERL5LIB
+Summary:    create and use a local lib/ for perl modules with PERL5LIB
 License:    GPL+ or Artistic
 Group:      Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
@@ -17,8 +17,11 @@ BuildRequires: perl(ExtUtils::Install)
 BuildRequires: perl(ExtUtils::MakeMaker)
 BuildRequires: perl(ExtUtils::ParseXS)
 BuildRequires: perl(Module::Build)
+
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+
+Provides: perl(local::lib)
 
 %description
 This module provides a quick, convenient way of bootstrapping a user-local
@@ -35,15 +38,11 @@ or collection of modules. Useful in cases like when an upstream maintainer
 hasn't applied a patch to a module of theirs that you need for your
 application.
 
-On import, local::lib sets the following environment variables to
-appropriate values:
-
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
-
 %make
 
 %check
@@ -61,5 +60,3 @@ rm -rf %buildroot
 %doc Changes META.yml
 %{_mandir}/man3/*
 %perl_vendorlib/*
-
-
