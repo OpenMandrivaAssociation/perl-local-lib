@@ -3,7 +3,7 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 3
+Release:    4
 
 Summary:    create and use a local lib/ for perl modules with PERL5LIB
 License:    GPL+ or Artistic
@@ -17,9 +17,9 @@ BuildRequires: perl(ExtUtils::Install)
 BuildRequires: perl(ExtUtils::MakeMaker)
 BuildRequires: perl(ExtUtils::ParseXS)
 BuildRequires: perl(Module::Build)
+BuildRequires: perl-devel
 
 BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 Provides: perl(local::lib)
 
@@ -49,14 +49,9 @@ application.
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes META.yml
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
