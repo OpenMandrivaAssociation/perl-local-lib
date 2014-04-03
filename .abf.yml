@@ -1,2 +1,4 @@
+removed_sources:
+  local-lib-1.006007.tar.gz: 69b2fde00e86a0c2e73fded98b6cdd1e68c09aab
 sources:
-  "local-lib-1.006007.tar.gz": 69b2fde00e86a0c2e73fded98b6cdd1e68c09aab
+  local-lib-2.000011.tar.gz: ed2e024f02657ffdf3262454a02243f4a1b41f5a
