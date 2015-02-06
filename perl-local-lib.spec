@@ -3,7 +3,7 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    2
+Release:    3
 
 Summary:    create and use a local lib/ for perl modules with PERL5LIB
 License:    GPL+ or Artistic
